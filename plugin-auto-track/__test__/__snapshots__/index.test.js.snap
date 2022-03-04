@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoTrackPlugin class component: class component 1`] = `
+
+import React from 'react';
+import api from '@/api';
+import utils from '@/utils';
+import './index-area2.less';
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+    const query = utils.query();
+  }
+
+  componentDidMount() {
+    api
+      .getConfig({
+        names: 'init',
+      })
+      .fetch()
+      .then((res) => {
+        this.setState({ ...res.data });
+      });
+  }
+
+  renderGridItem(data) {
+    const { code } = data;
+    const params = {};
+
+    function handleClick() {
+      location.href = 'url?params';
+    }
+
+    return (
+      <a className='grid-item' key={code} onClick={handleClick}>
+        <div className='grid-item-content'>
+          <img src={data.windowImage} />
+        </div>
+        <p>{data.name}</p>
+      </a>
+    );
+  }
+
+  renderGrid() {
+    const { data, showNum, more } = this.state;
+
+    const icons = [];
+
+    for (let i = 0; i < showNum; i++) {
+      icons.push(data[i]);
+    }
+
+    if (showNum < data.length) {
+      icons[showNum - 1] = {
+        code: '999',
+        status: 0,
+        name: '全部',
+        image: '全部的icon',
+      };
+    }
+
+    return icons.map((item) => this.renderGridItem(item));
+  }
+
+  handleClick3 = () => {
+    console.log('demo3');
+  };
+
+  render() {
+    return (
+      <div className='app'>
+        {this.renderGrid()}
+        <div onClick={() => console.log('demo1')}>demo1</div>
+        <div
+          onClick={() => {
+            console.log('demo2');
+          }}
+        >
+          demo2
+        </div>
+        <div onClick={this.handleClick3}>demo3</div>
+      </div>
+    );
+  }
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import _track from "@/track-sdk";
+import React from "react";
+import api from "@/api";
+import utils from "@/utils";
+import "./index-area2.less";
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+    const query = utils.query();
+  }
+
+  componentDidMount() {
+    api
+      .getConfig({
+        names: "init",
+      })
+      .fetch()
+      .then((res) => {
+        this.setState({ ...res.data });
+      });
+  }
+
+  renderGridItem(data) {
+    const { code } = data;
+    const params = {};
+
+    function handleClick() {
+      _track();
+
+      location.href = "url?params";
+    }
+
+    return (
+      <a className="grid-item" key={code} onClick={handleClick}>
+        <div className="grid-item-content">
+          <img src={data.windowImage} />
+        </div>
+        <p>{data.name}</p>
+      </a>
+    );
+  }
+
+  renderGrid() {
+    const { data, showNum, more } = this.state;
+    const icons = [];
+
+    for (let i = 0; i < showNum; i++) {
+      icons.push(data[i]);
+    }
+
+    if (showNum < data.length) {
+      icons[showNum - 1] = {
+        code: "999",
+        status: 0,
+        name: "全部",
+        image: "全部的icon",
+      };
+    }
+
+    return icons.map((item) => this.renderGridItem(item));
+  }
+
+  handleClick3 = () => {
+    console.log("demo3");
+  };
+
+  render() {
+    return (
+      <div className="app">
+        {this.renderGrid()}
+        <div
+          onClick={() => {
+            _track();
+
+            return console.log("demo1");
+          }}
+        >
+          demo1
+        </div>
+        <div
+          onClick={() => {
+            _track();
+
+            console.log("demo2");
+          }}
+        >
+          demo2
+        </div>
+        <div onClick={this.handleClick3}>demo3</div>
+      </div>
+    );
+  }
+}
+
+
+`;
+
+exports[`AutoTrackPlugin function component: function component 1`] = `
+
+import React from 'react';
+
+export default function () {
+  const handleClick = () => {
+    console.log('click 1');
+  };
+
+  function handleClick2() {
+    console.log('click 2');
+  }
+
+  function foo() {
+    console.log('foo');
+  }
+
+  const el = (<div onClick={handleClick}></div>)
+  const el2 = (<div onClick={handleClick2}></div>)
+  return <div></div>;
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import _track from "@/track-sdk";
+import React from "react";
+export default function () {
+  const handleClick = () => {
+    _track();
+
+    console.log("click 1");
+  };
+
+  function handleClick2() {
+    _track();
+
+    console.log("click 2");
+  }
+
+  function foo() {
+    console.log("foo");
+  }
+
+  const el = <div onClick={handleClick}></div>;
+  const el2 = <div onClick={handleClick2}></div>;
+  return <div></div>;
+}
+
+
+`;
