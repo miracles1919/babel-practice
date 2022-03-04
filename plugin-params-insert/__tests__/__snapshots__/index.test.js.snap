@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InsertParamsPlugin console.log: console.log 1`] = `
+
+console.log('hello world')
+
+function fun() {
+  console.log('foo')
+}
+
+export default class App {
+
+  say() {
+    console.log('what');
+  }
+
+  render() {
+    return (
+      <>
+        <div onClick={() => console.log('click')}>app</div>
+        <div>{console.log('jsx')}</div>
+      </>
+      
+    )
+  }
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+console.log("line: 1, column: 0");
+console.log("hello world");
+
+function fun() {
+  console.log("line: 4, column: 2");
+  console.log("foo");
+}
+
+export default class App {
+  say() {
+    console.log("line: 10, column: 4");
+    console.log("what");
+  }
+
+  render() {
+    return (
+      <>
+        <div
+          onClick={() => {
+            console.log("line: 16, column: 28");
+            console.log("click");
+          }}
+        >
+          app
+        </div>
+        <div>{[console.log("line: 17, column: 14"), console.log("jsx")]}</div>
+      </>
+    );
+  }
+}
+
+
+`;

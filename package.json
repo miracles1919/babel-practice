@@ -1,9 +1,15 @@
 {
   "name": "babel-practice",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
-    "@types/jest": "^27.0.1"
+    "@types/jest": "^27.0.1",
+    "acorn": "^8.7.0",
+    "jest": "^27.5.1"
   },
   "dependencies": {
+    "@babel/code-frame": "^7.16.7",
     "@babel/core": "^7.15.0",
     "@babel/generator": "^7.15.0",
     "@babel/helper-plugin-utils": "^7.14.5",
@@ -11,7 +17,6 @@
     "@babel/template": "^7.14.5",
     "@babel/traverse": "^7.15.0",
     "@babel/types": "^7.15.0",
-    "babel-plugin-tester": "^10.1.0",
-    "jest": "^27.0.6"
+    "babel-plugin-tester": "^10.1.0"
   }
 }
