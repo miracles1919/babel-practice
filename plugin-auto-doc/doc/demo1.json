@@ -1,0 +1,89 @@
+[
+  {
+    "type": "class",
+    "name": "Person",
+    "constructor": {
+      "name": "constructor",
+      "params": [
+        {
+          "name": "name"
+        },
+        {
+          "name": "age"
+        }
+      ]
+    },
+    "methods": [
+      {
+        "name": "say",
+        "params": [
+          {
+            "name": "name"
+          }
+        ],
+        "comments": {
+          "description": "`say` 方法",
+          "tags": [
+            {
+              "title": "param",
+              "description": "姓名",
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "name"
+            }
+          ]
+        }
+      }
+    ],
+    "properties": [],
+    "doc": {
+      "description": "Person 类",
+      "tags": []
+    }
+  },
+  {
+    "type": "function",
+    "name": "sum",
+    "params": [
+      {
+        "name": "a"
+      },
+      {
+        "name": "b"
+      }
+    ],
+    "comments": {
+      "description": "`sum` 方法",
+      "tags": [
+        {
+          "title": "param",
+          "description": "变量a",
+          "type": {
+            "type": "NameExpression",
+            "name": "number"
+          },
+          "name": "a"
+        },
+        {
+          "title": "param",
+          "description": "变量b",
+          "type": {
+            "type": "NameExpression",
+            "name": "number"
+          },
+          "name": "b"
+        },
+        {
+          "title": "returns",
+          "description": "返回值",
+          "type": {
+            "type": "NameExpression",
+            "name": "number"
+          }
+        }
+      ]
+    }
+  }
+]
