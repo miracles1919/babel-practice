@@ -63,6 +63,24 @@ const autoTrackPlugin = declare((api, options, dirname) => {
             state.trackImportedId = trackImportedId;
             state.trackAST = api.template.statement(`${trackImportedId}()`)();
           }
+
+          path.traverse({
+            FunctionDeclaration(path) {
+              const name = path.get('id').toString();
+
+              if (name) {
+                funcPathMap[name] = path;
+              }
+            },
+
+            ArrowFunctionExpression(path) {
+              const name = path.parentPath.get('id').toString();
+
+              if (name) {
+                funcPathMap[name] = path;
+              }
+            },
+          });
         },
       },
 
@@ -86,22 +104,6 @@ const autoTrackPlugin = declare((api, options, dirname) => {
               assertTrack(funcPath.get('body'), state);
             }
           }
-        }
-      },
-
-      FunctionDeclaration(path) {
-        const name = path.get('id').toString();
-
-        if (name) {
-          funcPathMap[name] = path;
-        }
-      },
-
-      ArrowFunctionExpression(path) {
-        const name = path.parentPath.get('id').toString();
-
-        if (name) {
-          funcPathMap[name] = path;
         }
       },
     },
