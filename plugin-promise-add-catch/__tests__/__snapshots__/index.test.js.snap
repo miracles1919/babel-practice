@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PromiseAddCatchPlugin catchTemplate: catchTemplate 1`] = `
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  });
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+
+/* disabled */
+confirm().then();
+
+/* pac-disabled */
+Dialog['confirm']().then();
+
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p.then();
+
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+/* disabled */
+
+confirm()
+  .then()
+  .catch((err) => {
+    console.log(err);
+  });
+/* pac-disabled */
+
+Dialog["confirm"]().then();
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p.then().catch((err) => {
+  console.log(err);
+});
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm().catch((err) => {
+    console.log(err);
+  });
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm().catch((err) => {
+    console.log(err);
+  });
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm().catch((err) => {
+    console.log(err);
+  });
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm().catch((err) => {
+    console.log(err);
+  });
+}
+
+
+`;
+
+exports[`PromiseAddCatchPlugin disabledComments: disabledComments 1`] = `
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  });
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+
+/* disabled */
+confirm().then();
+
+/* pac-disabled */
+Dialog['confirm']().then();
+
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p.then();
+
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  });
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+/* disabled */
+
+confirm()
+  .then()
+  .catch((err) => err);
+/* pac-disabled */
+
+Dialog["confirm"]()
+  .then()
+  .catch((err) => err);
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p.then().catch((err) => err);
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm().catch((err) => err);
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm();
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm().catch((err) => err);
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm();
+}
+
+
+`;
+
+exports[`PromiseAddCatchPlugin names: confirm: names: confirm 1`] = `
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  });
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+
+/* disabled */
+confirm().then();
+
+/* pac-disabled */
+Dialog['confirm']().then();
+
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p.then();
+
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .catch((err) => err);
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+/* disabled */
+
+confirm()
+  .then()
+  .catch((err) => err);
+/* pac-disabled */
+
+Dialog["confirm"]().then();
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p.then();
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm().catch((err) => err);
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm().catch((err) => err);
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm().catch((err) => err);
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm().catch((err) => err);
+}
+
+
+`;
+
+exports[`PromiseAddCatchPlugin names: names 1`] = `
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  });
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+
+/* disabled */
+confirm().then();
+
+/* pac-disabled */
+Dialog['confirm']().then();
+
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p.then();
+
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm();
+
+  /* catch-disabled */
+  const res2 = await Dialog.confirm();
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* catch-disabled */
+Dialog.confirm()
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .then(() => {
+    console.log(111);
+  })
+  .catch((err) => err);
+
+const confirm = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(true), 300);
+  });
+/* disabled */
+
+confirm()
+  .then()
+  .catch((err) => err);
+/* pac-disabled */
+
+Dialog["confirm"]().then();
+const p = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p.then();
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve(true), 300);
+});
+p2.then();
+
+const handleClick = async () => {
+  const res = await Dialog.confirm().catch((err) => err);
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm().catch((err) => err);
+};
+
+async function handleClick2() {
+  const res = await Dialog.confirm().catch((err) => err);
+  /* catch-disabled */
+
+  const res2 = await Dialog.confirm().catch((err) => err);
+}
+
+
+`;
